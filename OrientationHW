@@ -1,0 +1,97 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+##1st Question 
+
+import numpy as np
+
+Npart = 3
+
+Npart_array = [1,2,3,4,5]
+T_array = [3.125,6.25,9.375,12.5,15.625]
+
+m = np.zeros(Npart)
+v = np.zeros(Npart)
+
+for i in range (0,Npart):
+    m[i] = 1
+    v[i] = 2.5
+    
+    
+    
+print("Printing array of masses: ",m)
+print("Printing array of velocities: ",v)
+
+T = 1/2 * m * v**2
+
+print(T)
+
+T_tot_loop = 0
+
+for i in range(0,Npart):
+    T_tot_loop = T_tot_loop + T[i]
+    
+#T_tot_sum = np.sum(T)
+
+print("Kinetic Energy",T_tot_loop)
+#print("Result from numpy sum is ",T_tot_sum)
+
+### import time library
+import time
+### import pyplot as library
+from matplotlib import pyplot as plt
+
+### get the time at the beginning of the program
+start = time.time()
+### create an array of 100 x-values between -5 and 5
+x = Npart_array
+### create an array of y-values defined as y = x^2
+y = T_array
+
+
+### figure out how much time this whole program took to run!
+end = time.time()
+how_long = end - start
+### print the total time taken in seconds
+print(" Total time to run in seconds is: ",how_long)
+
+### plot y = x^2 with a red line!
+plt.plot(x, y, 'red')
+plt.show()
+ 
+ 
+#2nd Question 
+ 
+#Npart = 5 
+#q = np.ones(Npart)
+#x = np.linspace(0,(Npart-1)*0.2,Npart)
+#r= np.zeros((Npart,Npart))
+
+
+#for i in range(0,Npart):
+#    for j in range(0,Npart):
+#        r[i][j] = np.sqrt( (x[i]-x[j])**2)
+        
+#print("Printing array of charges ",q)
+#print("Printing array of charges ",x)
+#print("Printing array of charges \n",r)
+
+#def Potential(sep_array, charge_array):
+    
+#    N = len(charge_array)
+    
+#    Pot=0 
+    
+#    for i in range(0,N):
+#        for j in range(0,N):
+            
+#            if (i!=j):
+#                Pot = Pot + charge_array[i]*charge_array[j]/sep_array[i][j]
+#    return Pot
+
+#V_tot = Potential(r,q)
+
+#print(V_tot)
