@@ -187,3 +187,11 @@ x = N
 y = Pe_array   
 
 plt.plot(x, y 'red') 
+
+
+1)	How does the total kinetic energy of a collection of N particles grow with N assuming each particle has the same average kinetic energy? 
+•	The total kinetic energy of a collection of N particles grow linearly as the kinetic energy increases and vice versa. The total kinetic energy is directly proportional to N. 
+2)	How does the total potential energy of a collection of N equally spaced charged particles grow with N?
+•	The potential energy of a collection of N equally spaced charged particles grow exponentially, meaning that the growth rate is a lot faster in comparison to the growth rate to the total potential energy. 
+3)	Kinetic energy grows linearly whereas potential energy grows quadratically, meaning that the values are square of the function. For linear growth, you put in 2, you get out 2 whereas for quadratic growth you put in 2, you get out 4. 
+
