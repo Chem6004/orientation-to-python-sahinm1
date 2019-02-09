@@ -8,90 +8,111 @@ This is a temporary script file.
 
 import numpy as np
 
-Npart = 3
+#Npart = 3
 
 Npart_array = [1,2,3,4,5]
-T_array = [3.125,6.25,9.375,12.5,15.625]
+Ke_array = [3.125,6.25,9.375,12.5,15.625]
+Pe_array = [19.289682539682542,51.9547931428736,89.84961392761172,131.14172155745546,174.9602669164726]
 
-m = np.zeros(Npart)
-v = np.zeros(Npart)
+#m = np.zeros(Npart)
+#v = np.zeros(Npart)
 
-for i in range (0,Npart):
-    m[i] = 1
-    v[i] = 2.5
+#for i in range (0,Npart):
+#    m[i] = 1
+#    v[i] = 2.5
     
     
     
-print("Printing array of masses: ",m)
-print("Printing array of velocities: ",v)
+#print("Printing array of masses: ",m)
+#print("Printing array of velocities: ",v)
 
-T = 1/2 * m * v**2
+#T = 1/2 * m * v**2
 
-print(T)
+#print(T)
 
-T_tot_loop = 0
+#T_tot_loop = 0
 
-for i in range(0,Npart):
-    T_tot_loop = T_tot_loop + T[i]
+#for i in range(0,Npart):
+#    T_tot_loop = T_tot_loop + T[i]
     
 #T_tot_sum = np.sum(T)
 
-print("Kinetic Energy",T_tot_loop)
+#print("Kinetic Energy",T_tot_loop)
 #print("Result from numpy sum is ",T_tot_sum)
 
-### import time library
-import time
-### import pyplot as library
+#import time library
+#import time
+#import pyplot as library
 from matplotlib import pyplot as plt
 
 ### get the time at the beginning of the program
-start = time.time()
+#start = time.time()
 ### create an array of 100 x-values between -5 and 5
-x = Npart_array
+#x = Npart_array
 ### create an array of y-values defined as y = x^2
-y = T_array
+#y = Ke_array
 
 
 ### figure out how much time this whole program took to run!
-end = time.time()
-how_long = end - start
+#end = time.time()
+#how_long = end - start
 ### print the total time taken in seconds
-print(" Total time to run in seconds is: ",how_long)
+#print(" Total time to run in seconds is: ",how_long)
 
 ### plot y = x^2 with a red line!
-plt.plot(x, y, 'red')
-plt.show()
+#plt.plot(x, y, 'blue')
+#plt.show()
  
  
-#2nd Question 
+#2nd&3rd Question 
  
-#Npart = 5 
-#q = np.ones(Npart)
-#x = np.linspace(0,(Npart-1)*0.2,Npart)
-#r= np.zeros((Npart,Npart))
+Npart = 5 
+
+q = np.ones(Npart)
+
+x = np.linspace(0,(Npart-1)*0.2,Npart)
+
+r= np.zeros((Npart,Npart))
 
 
-#for i in range(0,Npart):
-#    for j in range(0,Npart):
-#        r[i][j] = np.sqrt( (x[i]-x[j])**2)
+for i in range(0,Npart):
+    for j in range(0,Npart):
+        r[i][j] = np.sqrt( (x[i]-x[j])**2)
         
-#print("Printing array of charges ",q)
-#print("Printing array of charges ",x)
-#print("Printing array of charges \n",r)
+print("Printing array of charges ",q)
+print("Printing array of charges ",x)
+print("Printing array of charges \n",r)
 
-#def Potential(sep_array, charge_array):
+def Potential(sep_array, charge_array):
     
-#    N = len(charge_array)
+    N = len(charge_array) 
     
-#    Pot=0 
+    Pot=0 
     
-#    for i in range(0,N):
-#        for j in range(0,N):
+    for i in range(0,N):
+        for j in range(0,N):
             
-#            if (i!=j):
-#                Pot = Pot + charge_array[i]*charge_array[j]/sep_array[i][j]
-#    return Pot
+            if (i!=j):
+                Pot = Pot + charge_array[i]*charge_array[j]/sep_array[i][j]
+    return Pot
 
-#V_tot = Potential(r,q)
+V_tot = Potential(r,q)
 
-#print(V_tot)
+print(V_tot)
+
+import time
+
+start = (time.time)
+
+x1 = Npart_array 
+y1= Ke_array 
+
+x2 = Npart_array
+y2 = Pe_array  
+
+plt.plot(x1,y1, 'red')
+plt.plot(x2,y2, label = "kinetic")
+
+plt.plot(x2,y2 , 'blue') 
+plt.plot(x2,y2, label ="potential")
+       
