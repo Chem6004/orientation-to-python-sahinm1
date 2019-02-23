@@ -31,7 +31,7 @@ plt.legend()
 plt.show()
 
  
-order = 3
+order = 5
 
 sE = InterpolatedUnivariateSpline(Bondlength_array, E_array, k=order)
 
@@ -75,6 +75,10 @@ mu = 12589.
 v = np.sqrt( np.sqrt(k/mu)/(2*mu))
 r_init = np.random.uniform(0.75*r_eq,2*r_eq)
 v_init = np.random.uniform(-2*v,2*v)
+v_freq = ((0.5*np.pi)*np.sqrt(k/mu))
+print("Vibrational Frequency is", v_freq, "atomic units")
+v_freq_microns = v_freq/18897.25988579
+print("Vibrational Frequency is ", v_freq_microns,)
 
 print("Initial separation is ",r_init, "atomic units")
 print("Initial velocity is ",v_init, "atomic units")
@@ -100,6 +104,10 @@ t_array = np.zeros(N_updates)
 r_vs_t[0] = r_init
 v_vs_t[0] = v_init
 
+a = -1*fE(3)/12589
+
+print("Acceleration ", a) 
+
 result_array = Velocity_Verlet(r_init, v_init, mu, fE, dt)
 
 for i in range(1,N_updates):
@@ -115,3 +123,19 @@ plt.show()
 plt.plot(mu*v_vs_t, r_vs_t, 'blue')
 plt.show()
 
+###Question 1 
+#What is the reduced mass of the CO molecule in atomic units? 
+#mu= 12589 
+# to find the reduced mass we use mu= mC*mO / mC+mO
+#Therefore new mu = ((1836*12)*(1836*16)/(1836*12)+(1836*16)) = 12589 
+###Question 2
+#Use your spline fit to the PES of CO to estimate the vibrational frequency of CO. Express your number in atomic units and also 
+# convert to a common spectroscopic unit system of your choosing (wavenumbers, nm, microns, Hertz, THz are all acceptable choices.
+#shown in the equation above for microns
+#vibrational frequency is 0.016016838385637888 in atomic units 
+#vibrational frequency is 8.475746474589114e-07 in microns 
+###Question 3
+#what will the acceleration of the bond stretch when C is separated by O
+#by 3 atomic units? You can express your acceleration in atomic units, also. 
+#the acceleration is a = -1*fE(3)/mu we place 3 into r because the difference is 3 
+#the calculated acceleration -2.1890796919066313e-05 when C is separated by O by 3 atomic units. 
