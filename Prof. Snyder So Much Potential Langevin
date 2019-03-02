@@ -134,3 +134,6 @@ plt.show()
 
 plt.plot(t_array,e_vs_t,'magenta')
 plt.show()
+
+print("Mean Energy for next to last 100000 time steps of the trajectory is ",np.mean(e_vs_t[(N_updates-20000):(N_updates-10000)])," Hartrees")
+print("Mean Energy for last 100000 time steps of the trajectory is ",np.mean(e_vs_t[(N_updates-10000):N_updates])," Hartrees")
